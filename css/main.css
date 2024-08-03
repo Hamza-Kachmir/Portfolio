@@ -1,139 +1,87 @@
+/* Variables CSS */
+:root {
+    --color-bg: #323232;
+    --color-bg-alt: #1a1a1a;
+    --color-bg-light: #374151;
+    --color-bg-hover: #555;
+    --color-text: #fff;
+    --color-border: #d4d4d4;
+    --color-link-hover: #374151;
+    --font-primary: 'Nunito', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+    --transition-duration: 0.5s;
+}
+
+/* Reset Styles */
 * {
     margin: 0;
     padding: 0;
-    text-decoration: none;
     box-sizing: border-box;
-}
-
-a {
     text-decoration: none;
 }
 
-@font-face {
-    font-family: "Montserrat";
-    src: url("../fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
-}
-
-@font-face {
-    font-family: "Nunito";
-    src: url("../fonts/Nunito/Nunito-VariableFont_wght.ttf");
-}
-
-/* Style de base pour la scrollbar */
-::-webkit-scrollbar {
-    width: 20px; /* Largeur de la scrollbar */
-}
-
-/* Style de la track de la scrollbar */
-::-webkit-scrollbar-track {
-    background: #1a1a1a; /* Couleur de fond de la track */
-    border-radius: 10px; /* Coins arrondis de la track */
-}
-
-/* Style du thumb (la partie de la scrollbar qui défile) */
-::-webkit-scrollbar-thumb {
-    background: #374151; /* Couleur du thumb */
-    border-radius: 10px; /* Coins arrondis du thumb */
-    border: 3px solid #1a1a1a; /* Bordure pour créer un espacement */
-}
-
-/* Style du thumb lors du survol */
-::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Couleur du thumb lors du survol */
-}
-
+/* Base Styles */
 body {
-    scrollbar-color: #374151 #1a1a1a; /* Couleur du thumb et de la track */
-    scrollbar-width: thin; /* Largeur fine de la scrollbar */
-    font-family: "Nunito", sans-serif;
-    background: #323232;
+    font-family: var(--font-primary);
+    background: var(--color-bg);
+    color: var(--color-text);
+    scrollbar-color: var(--color-bg-light) var(--color-bg-alt);
+    scrollbar-width: thin;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Montserrat", sans-serif;
-    color: #fff;
+    font-family: var(--font-secondary);
+    color: var(--color-text);
 }
 
 h2 {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     font-weight: bold;
     font-size: 30px;
-}
-
-.row {
-    display: flex;
-    justify-content: center;
 }
 
 p {
     font-size: 20px;
     line-height: 2;
-    color: #fff;
 }
 
-.r-p {
-    padding-top: 100px;
-    padding-bottom: 100px;
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 20px;
 }
 
-section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.5s ease-in-out;
+::-webkit-scrollbar-track {
+    background: var(--color-bg-alt);
+    border-radius: 10px;
 }
 
-section.visible {
-    opacity: 1;
-    transform: translateY(50px);
+::-webkit-scrollbar-thumb {
+    background: var(--color-bg-light);
+    border-radius: 10px;
+    border: 3px solid var(--color-bg-alt);
 }
 
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-bg-hover);
+}
+
+/* Navigation Bar */
 nav.r-nav {
     background: transparent;
     padding: 20px 0;
-    transition: .5s all;
+    transition: var(--transition-duration) all;
+}
+
+nav.r-nav.stickyadd {
+    background: var(--color-bg-light);
+    padding: 10px 0;
+    box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.1);
 }
 
 nav .navbar-brand {
     font-size: 30px;
-    color: #fff;
-}
-
-nav .navbar-nav li a {
-    color: #fff !important;
-    font-size: 16px;
-    letter-spacing: 0.05em;
-    font-weight: 600;
-}
-
-nav .navbar-nav li {
-    margin-left: 15px;
-}
-
-nav.r-nav.stickyadd {
-    background: #374151 !important;
-    padding: 10px 0;
-    box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
-}
-
-nav.stickyadd .navbar-brand {
-    color: #fff;
-    font-size: 30px;
-    transition: .5s all;
-}
-
-nav.r-nav.show-bg {
-    background: #161C24;
-}
-
-.navbar-brand:focus, .navbar-brand:hover {
-    color: #fff;
-}
-
-.navbar .hamburger {
-    color: #fff;
 }
 
 .navbar-brand img {
@@ -141,9 +89,28 @@ nav.r-nav.show-bg {
     width: auto;
 }
 
+.navbar .hamburger {
+    color: var(--color-text);
+}
+
 .navbar {
     display: flex;
     align-items: center;
+}
+
+nav .navbar-nav li {
+    margin-left: 15px;
+}
+
+nav .navbar-nav li a {
+    color: var(--color-text) !important;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+nav.r-nav.show-bg {
+    background: #161C24;
 }
 
 :target::before {
@@ -153,10 +120,11 @@ nav.r-nav.show-bg {
     visibility: hidden;
 }
 
+/* Header */
 header {
     height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/backgroud.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/backgroud.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -172,8 +140,7 @@ header {
 }
 
 .content-box {
-    max-width: auto;
-    color: #fff;
+    color: var(--color-text);
     text-align: center;
 }
 
@@ -185,8 +152,10 @@ header {
     font-size: 52px;
 }
 
-.content-box p {
-    color: #fff;
+/* Section: About */
+.about {
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .about .card-body {
@@ -194,25 +163,24 @@ header {
 }
 
 .about li a {
-    color: #fff;
+    color: var(--color-text);
     display: inline-block;
     height: 42px;
     width: 42px;
     font-size: 20px;
-    border: 2px solid #d4d4d4;
+    border: 2px solid var(--color-border);
     border-radius: 50%;
     line-height: 40px;
-    transition: 0.5s all;
+    transition: var(--transition-duration) all;
     text-align: center;
 }
 
 .about li a:hover {
-    color: #374151;
+    color: var(--color-link-hover);
 }
 
 .list-inline {
     text-align: center;
-    padding: 0;
 }
 
 .list-inline-item {
@@ -220,107 +188,45 @@ header {
     margin: 0 10px;
 }
 
+/* Card Styles */
 .card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     border: none;
-    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
-    background: none;
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .card-body {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
     flex-grow: 1;
-}
-
-.text-center {
-    margin-top: auto;
-}
-
-.card-has-bg {
-    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-.card-has-bg:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: inherit;
-    -webkit-filter: grayscale(1);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    filter: grayscale(100%);
-}
-
-.card-has-bg:hover {
-    transform: scale(0.98);
-    box-shadow: 0 0 5px -2px rgba(0, 0, 0, 0.3);
-    background-size: cover;
-    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.card-has-bg:hover .card-img-overlay {
-    transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-    background: rgb(13, 17, 24);
-    background: linear-gradient(0deg, rgba(13, 17, 24, 1) 0%, rgba(29, 35, 44, 1) 100%);
-}
-
-.card-footer {
-    background: none;
-    border-top: none;
-}
-
-.card-footer .media img {
-    border: solid 3px rgba(255, 255, 255, 0.3);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .card-title {
-    align-items: center;
     font-weight: 800;
     font-size: 20px;
-}
-
-.card-meta {
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: 2px;
-}
-
-.card-body {
-    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.card:hover .card-body {
-    margin-top: 30px;
-    transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-    cursor: pointer;
-}
-
-.card-img-overlay {
-    transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-    background: rgb(13, 17, 24);
-    background: linear-gradient(0deg, rgba(13, 17, 24, 1) 0%, rgba(29, 35, 44, 1) 100%);
 }
 
 .text-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #fff;
 }
 
 .card-logo {
@@ -329,18 +235,14 @@ header {
 }
 
 .card-custom {
-    background: #1a1a1a;
-    color: #fff;
     border-radius: 20px;
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
     height: 100%;
 }
 
-.card-body {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+/* Card-specific customizations */
+.project-card, .about-card {
+    margin-bottom: 20px;
 }
 
 .card-custom:hover {
@@ -348,12 +250,10 @@ header {
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
 }
 
-.logo-studi {
-    width: 80px;
-}
-
-.logo-avenir {
-    width: 100px;
+/* Section: Experience */
+.exp-class {
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .dates {
@@ -362,29 +262,42 @@ header {
     font-size: 15px;
 }
 
+.logo-studi {
+    width: 80px;
+}
+
+/* Section: Skills */
+.skills-class {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.marquee-content {
+    padding: 5px 0;
+}
+
 .skills-marquee {
     overflow: hidden;
     position: relative;
     width: 100%;
 }
 
-.skills-marquee i,
-.skills-marquee img {
+.skills-marquee i, .skills-marquee img {
     margin: 0 30px;
     font-size: 3rem;
     color: #333;
     vertical-align: middle;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
 }
 
-.skills-marquee i:hover, 
-.skills-marquee img:hover {
+.skills-marquee i:hover, .skills-marquee img:hover {
     transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
 }
 
 .fab.fa-html5 {
     color: #e34c26;
-    margin-left: -10px;   
+    margin-left: -10px;
 }
 
 .fab.fa-css3-alt {
@@ -420,7 +333,7 @@ header {
 }
 
 .fab.fa-github {
-    color: #fff;
+    color: var(--color-text);
 }
 
 .fab.fa-gitlab {
@@ -434,6 +347,19 @@ header {
 .skill-icon {
     width: 50px;
     margin-top: -20px;
+}
+
+/* Section: Projects */
+.realisations-class {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.project-card {
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .gg-logo {
@@ -459,11 +385,80 @@ header {
 }
 
 .github-btn .fab {
-    font-size: 24px; /* Augmenter la taille de l'icône */
-    margin-left: 12px; /* Ajouter de l'espace entre l'icône et le texte */
+    font-size: 24px;
+    margin-left: 12px;
 }
 
-/* Styles des boutons */
+/* Section: Contact */
+.contact {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.contact-card .card-body {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.contact__card-icon {
+    font-size: 3rem;
+}
+
+.contact-card h4, .contact-card p {
+    color: var(--color-text);
+}
+
+.contact-card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.card-contact {
+    padding-top: 15px;
+}
+
+.contact__form input, .contact__form textarea {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+.contact__form input::placeholder, .contact__form textarea::placeholder {
+    color: var(--color-text);
+    opacity: 0.8;
+}
+
+.contact__form input:focus, .contact__form textarea:focus, .contact__form input:active, .contact__form textarea:active {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    outline: none;
+    border: 1px solid #777;
+}
+
+.contact__form input::selection, .contact__form textarea::selection {
+    background: #444;
+    color: var(--color-text);
+}
+
+.contact__form input:-webkit-autofill, .contact__form textarea:-webkit-autofill {
+    background-color: var(--color-bg) !important;
+    color: var(--color-text) !important;
+    border: 1px solid #777 !important;
+    box-shadow: 0 0 0px 1000px var(--color-bg) inset;
+    -webkit-text-fill-color: var(--color-text) !important;
+}
+
+.contact__form input:-moz-autofill, .contact__form textarea:-moz-autofill {
+    background-color: var(--color-bg) !important;
+    color: var(--color-text) !important;
+    border: 1px solid #777 !important;
+    box-shadow: 0 0 0px 1000px var(--color-bg) inset;
+}
+
+/* Button Styles */
 .btn {
     display: flex;
     align-items: center;
@@ -472,141 +467,60 @@ header {
     font-size: 16px;
     border-radius: 20px;
     text-align: center;
-    width: 100%; /* Assurez-vous que les boutons prennent toute la largeur disponible */
-    height: 50px; /* Assurez-vous que tous les boutons ont la même hauteur */
+    width: 100%;
+    height: 50px;
 }
 
-/* Bouton CV (ne pas modifier) */
 .btn.btn-cv {
-    color: #fff;
-    border: 2px solid #fff;
+    color: var(--color-text);
+    border: 2px solid var(--color-text);
     border-radius: 20px;
     padding: 10px 20px;
     display: inline-block;
     font-weight: bold;
-    transition: 0.5s all;
-    width: auto; /* Assurez-vous que les boutons prennent toute la largeur disponible */
-
+    transition: var(--transition-duration) all;
+    width: auto;
 }
 
 .btn.btn-cv:hover {
     color: #000;
-    background: #fff;
-    transition: 0.5s all;
+    background: var(--color-text);
+    transition: var(--transition-duration) all;
 }
 
-/* Boutons de contact */
-
-.contact .btn {
-    width: 100%;
-    max-width: 200px; /* Définissez la largeur maximale désirée */
-    padding: 10px 20px; /* Ajustez le padding pour un meilleur espacement */
-    margin: 0 auto; /* Centre le bouton si nécessaire */
-}
-
-.form-label {
-    display: flex;
-    justify-content: flex-start;
-    font-weight: bold;
-}
-
-/* Appliquer le fond du body aux champs du formulaire */
-/* Appliquer le fond du body aux champs du formulaire */
-.contact__form input,
-.contact__form textarea {
-    background-color: #323232; /* Utiliser la couleur de fond du body */
-    color: #fff; /* Couleur du texte */
-    border: 1px solid #555; /* Optionnel : définir une bordure subtile */
-    border-radius: 5px; /* Bordure arrondie */
-    padding: 10px; /* Espacement interne */
-    width: 100%; /* Prendre toute la largeur disponible */
-}
-
-/* Styles pour le placeholder */
-.contact__form input::placeholder,
-.contact__form textarea::placeholder {
-    color: #fff; /* Couleur des placeholders en blanc */
-    opacity: 0.8; /* Optionnel : réduire l'opacité pour un effet visuel */
-}
-
-/* Assurez-vous que le style est conservé lorsque le champ est actif */
-.contact__form input:focus,
-.contact__form textarea:focus,
-.contact__form input:active,
-.contact__form textarea:active {
-    background-color: #323232; /* Conserve la couleur de fond même au focus */
-    color: #fff; /* Couleur du texte */
-    outline: none; /* Supprime l'effet d'outline par défaut */
-    border: 1px solid #777; /* Ajuster la bordure si nécessaire lors du focus */
-}
-
-/* Styles pour le texte sélectionné dans les champs de saisie */
-.contact__form input::selection,
-.contact__form textarea::selection {
-    background: #444; /* Couleur de fond pour le texte sélectionné */
-    color: #fff; /* Couleur du texte sélectionné */
-}
-
-/* État d'autocomplétion pour certains navigateurs */
-.contact__form input:-webkit-autofill,
-.contact__form textarea:-webkit-autofill {
-    background-color: #323232 !important; /* Conserver la couleur de fond lors de l'autocomplétion */
-    color: #fff !important; /* Couleur du texte */
-    border: 1px solid #777 !important; /* Bordure si besoin */
-    box-shadow: 0 0 0px 1000px #323232 inset; /* Hack pour certains navigateurs */
-    -webkit-text-fill-color: #fff !important; /* Texte blanc pour l'autocomplétion */
-}
-
-/* Hack pour Firefox */
-.contact__form input:-moz-autofill,
-.contact__form textarea:-moz-autofill {
-    background-color: #323232 !important; /* Conserver la couleur de fond */
-    color: #fff !important; /* Texte blanc */
-    border: 1px solid #777 !important; /* Bordure si besoin */
-    box-shadow: 0 0 0px 1000px #323232 inset; /* Hack pour l'autocomplétion */
-}
-
-
-/* Boutons "En savoir plus" et autres */
 .btn.btn-info {
     border: none;
-    background-color: rgb(55, 65, 81); /* Couleur de fond initiale */
-    color: #fff; /* Couleur du texte */
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
 }
 
 .btn.btn-info:hover {
-    background-color: rgb(75, 85, 99); /* Couleur de fond au survol */
-    color: #fff; /* Couleur du texte */
+    background-color: rgb(75, 85, 99);
 }
 
 .btn.btn-info:active {
-    background-color: #374151; /* Couleur de fond au clic */
-    color: #fff; /* Couleur du texte */
+    background-color: var(--color-bg-light);
 }
 
-/* Boutons primaires */
 .btn.btn-primary {
-    background-color: rgb(55, 65, 81); /* Couleur de fond initiale */
-    color: #fff; /* Couleur du texte */
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
 }
 
 .btn.btn-primary:hover {
-    background-color: rgb(75, 85, 99); /* Couleur de fond au survol */
-    color: #fff; /* Couleur du texte */
+    background-color: rgb(75, 85, 99);
 }
 
 .btn.btn-primary:active {
-    background-color: #374151; /* Couleur de fond au clic */
-    color: #fff; /* Couleur du texte */
+    background-color: var(--color-bg-light);
 }
 
-/* Assurez-vous que .btn-container a une largeur maximale ou une largeur basée sur le parent */
 .btn-container {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 20px;
-    width: 100%; /* Ajouté pour que le conteneur prenne toute la largeur du parent */
+    width: 100%;
 }
 
 .btn-container .btn {
@@ -617,59 +531,56 @@ header {
     font-size: 16px;
     border-radius: 20px;
     text-align: center;
-    width: 48%; /* Ajouté pour que les boutons prennent chacun 48% de la largeur du conteneur */
+    width: 48%;
 }
 
 .btn-secondary, .btn-primary {
-    background-color: rgb(55, 65, 81);
+    background-color: var(--color-bg-light);
     border: none;
     border-radius: 20px;
     height: 50px;
-    width: 100%; /* Assurez-vous que les boutons prennent toute la largeur du conteneur */
+    width: 100%;
 }
 
 .btn-secondary:hover, .btn-primary:hover {
     background-color: rgb(75, 85, 99);
-    color: #fff;
 }
 
-.contact-card .card-body {
-    padding-top: 30px;
-    text-align: center;
+.contact .btn {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px 20px;
+    margin: 0 auto;
 }
 
-.contact__card-icon {
-    font-size: 3rem; /* Ajuste la taille ici pour agrandir les icônes */
-    color: #fff; /* Couleur des icônes */
-}
-
-
-.card-custom {
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card-custom:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-}
-
-.contact-card h4, .contact-card p {
-    color: #fff;
-}
-
-.contact-card p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-}
-
-.project-card {
-    min-height: 450px;
+.form-label {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    font-weight: bold;
 }
 
-/* Styles généraux pour la popup */
+/* Footer */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    border-top: 3px solid var(--color-bg-light);
+    font-weight: bold;
+    transition: transform 0.5s ease-in-out;
+}
+
+footer p {
+    white-space: wrap;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Styles Requiring JavaScript */
+
+/* Popup Styles */
 .popup {
     display: none;
     position: fixed;
@@ -677,21 +588,23 @@ header {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 80%; /* Mettre à jour pour augmenter la largeur */
-    max-width: 800px; /* Augmenter la largeur maximale */
+    width: 80%;
+    max-width: 800px;
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
+    cursor: pointer;
 }
 
 .popup-content {
-    background-color: #1a1a1a;
-    color: #fff;
+    background-color: var(--color-bg-alt);
+    color: var(--color-text);
     padding: 20px;
     border: 1px solid #888;
     border-radius: 10px;
     position: relative;
     width: 100%;
-    height: 500px; /* Taille fixe pour toutes les popups */
+    height: 500px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -700,13 +613,9 @@ header {
     overflow: hidden;
 }
 
-.popup-content h2, .popup-content p {
-    margin: 10px 0;
-}
-
 .popup-body {
     overflow-y: auto;
-    max-height: calc(100% - 120px); /* Adjust to ensure content fits well within the popup */
+    max-height: calc(100% - 120px);
     width: 100%;
     padding: 0 20px;
 }
@@ -722,11 +631,9 @@ header {
     cursor: pointer;
 }
 
-.close-btn:hover,
-.close-btn:focus {
-    color: #fff;
+.close-btn:hover, .close-btn:focus {
+    color: var(--color-text);
     text-decoration: none;
-    cursor: pointer;
 }
 
 body.popup-open {
@@ -742,6 +649,7 @@ body.popup-open {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
 }
 
 .popup-content img {
@@ -754,44 +662,40 @@ body.popup-open {
 }
 
 .navbar-disabled {
-    pointer-events: none; /* Désactive les interactions */
-    opacity: 0.5; /* Rend la barre de navigation semi-transparente */
+    pointer-events: none;
 }
 
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    bottom: 0;
-    left: 50%;
-    margin: 0 auto 0 auto;
-    width: 80%;
-    border-top: 3px solid;
-    border-color: #374151;
-    font-weight: bold;
-    transition: transform 0.5s ease-in-out;
+/* Disable scrolling */
+.no-scroll {
+    overflow: hidden;
 }
 
-footer p {
-    white-space: wrap;
-    text-align: center;
-    margin-top: 25px;
-    margin-bottom: 25px;
+/* Animation sections */
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s ease-in-out;
 }
 
-/* Styles spécifiques pour les écrans larges */
+section.visible {
+    opacity: 1;
+    transform: translateY(50px);
+}
+
+
+
 @media (min-width: 992px) {
     .popup-content {
-        max-width: 800px; /* Augmenter la largeur maximale */
-        height: auto; /* Ajuster la hauteur pour s'adapter au contenu */
-        padding: 40px; /* Ajouter un padding supplémentaire pour les grands écrans */
+        max-width: 800px;
+        height: auto;
+        padding: 40px;
     }
 
     .popup-content h2 {
-        font-size: 2rem; /* Ajuster la taille du texte pour les grands écrans */
+        font-size: 2rem;
     }
 
     .popup-content p {
-        font-size: 1.2rem; /* Ajuster la taille du texte pour les grands écrans */
+        font-size: 1.2rem;
     }
 }

@@ -5,35 +5,44 @@ $(document).ready(function() {
     const $popup = $('#popup');
     const $overlay = $('#overlay');
     const $btnSecondary = $('.btn-info');
-    
+    const stickyClass = 'stickyadd';
+    const showBgClass = 'show-bg';
+
+    // Gestion de la classe sticky et de l'arrière-plan de la barre de navigation lors du défilement
     function gererScroll() {
-        var scroll = $(window).scrollTop();
-        $navbar.toggleClass('stickyadd', scroll >= 50);
+        const scroll = $(window).scrollTop();
+        $navbar.toggleClass(stickyClass, scroll >= 50);
     }
 
+    // Gestion de l'état du menu hamburger et du défilement du corps de la page
     function gererClicHamburger() {
-        if (!$navbar.hasClass('stickyadd')) {
-            $navbar.toggleClass('show-bg');
+        const isToggled = $navbarToggler.attr('aria-expanded') === 'true';
+        $('body').toggleClass('no-scroll', isToggled);
+
+        if (!$navbar.hasClass(stickyClass)) {
+            $navbar.toggleClass(showBgClass);
         }
     }
 
+    // Cache le menu de navigation et réactive le défilement lors du clic sur un lien
     function gererClicLien() {
         $('.navbar-collapse').collapse('hide');
+        $('body').removeClass('no-scroll');
     }
 
+    // Gestion de l'affichage de l'arrière-plan de la barre de navigation lors du redimensionnement de la fenêtre
     function gererRedimensionnement() {
-        var width = $(window).width();
-        var isNavbarToggled = $navbarToggler.attr('aria-expanded') === 'true';
+        const width = $(window).width();
+        const isNavbarToggled = $navbarToggler.attr('aria-expanded') === 'true';
 
         if (width >= 992) {
-            $navbar.removeClass('show-bg');
-        } else {
-            if (isNavbarToggled && !$navbar.hasClass('stickyadd')) {
-                $navbar.addClass('show-bg');
-            }
+            $navbar.removeClass(showBgClass);
+        } else if (isNavbarToggled && !$navbar.hasClass(stickyClass)) {
+            $navbar.addClass(showBgClass);
         }
     }
 
+    // Initialisation des animations de texte avec Typed.js
     function initialiserTyped() {
         new Typed(".element", {
             strings: ["Hamza Kachmir", "un développeur", "à la recherche d'une alternance"],
@@ -46,6 +55,7 @@ $(document).ready(function() {
         });
     }
 
+    // Initialisation de l'effet de texte défilant avec Marquee.js
     function initialiserMarquee() {
         $('.skills-marquee').marquee({
             duration: 10000,
@@ -57,15 +67,17 @@ $(document).ready(function() {
         });
     }
 
+    // Défilement fluide vers les sections de la page lors du clic sur un lien
     function gererDefilementFluide(e) {
         e.preventDefault();
-        var target = $(this).attr('href');
-        var targetElement = $(target);
-        
-        if (targetElement.length) {
-            var targetPosition = targetElement.offset().top - $('.navbar').outerHeight();
-            var currentPosition = $(window).scrollTop();
+        const target = $(this).attr('href');
+        const targetElement = $(target);
 
+        if (targetElement.length) {
+            const targetPosition = targetElement.offset().top - $('.navbar').outerHeight();
+            const currentPosition = $(window).scrollTop();
+
+            // Vérifie si la position actuelle est différente de la cible pour éviter les animations inutiles
             if (Math.abs(currentPosition - targetPosition) > 1) {
                 $('html, body').animate({
                     scrollTop: targetPosition
@@ -74,9 +86,11 @@ $(document).ready(function() {
         }
     }
 
+    // Animation des sections lorsqu'elles deviennent visibles à l'écran
     function initialiserIntersectionObserver() {
         const sections = document.querySelectorAll("section");
 
+        // Création d'un observateur pour ajouter la classe "visible" lorsque la section entre dans le viewport
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -92,29 +106,33 @@ $(document).ready(function() {
         });
     }
 
+    // Gestion de l'affichage du popup avec les détails du projet
     $btnSecondary.on('click', function(e) {
         e.preventDefault();
-        var project = $(this).data('popup');
-        var projectDetails = {
+        const project = $(this).data('popup');
+        // Sauvegarde l'élément qui a déclenché le popup pour restaurer le focus plus tard
+        const $trigger = $(this);
+
+        const projectDetails = {
             'GiveGood': {
                 title: 'GiveGood',
                 logo: 'images/logo-givegood.png',
-                description: 'GiveGood est un projet que j\'ai développé pendant ma formation à l\'Apple Foundation Program. Ce projet a été réalisé en collaboration avec 3 autres apprenants. Mon rôle principal au sein de l\'équipe était de gérer le regroupement du code, assurant ainsi une intégration fluide et cohérente des contributions de chacun. Nous avons utilisé Figma pour concevoir les maquettes et le prototype de notre application. Pour le développement, nous avons utilisé Swift et SwiftUI.'
+                description: 'GiveGood est un projet que j\'ai développé pendant ma formation d\'Apple Foundation Program. Ce projet a été réalisé en collaboration avec 3 autres apprenants. Mon rôle principal au sein de l\'équipe était de gérer le regroupement du code, assurant ainsi une intégration fluide et cohérente des contributions de chacun. Nous avons utilisé Figma pour concevoir les maquettes et le prototype de notre application. Pour le développement, nous avons utilisé Swift et SwiftUI.'
             },
             'Easy Ocre': {
                 title: 'Easy Ocre',
                 logo: 'images/logo-ocre.png',
-                description: 'Easy Ocre est un projet que j\'ai présenter le jour de ma soutenance pour le titre de développeur web. J\'ai voulu allier deux de mes passions : le développement et le jeu Dofus. J\'ai donc créé une plateforme qui permet aux joueurs de suivre l\'avancement de leur quête "l\'éternelle moisson", une quête longue et fastidieuse. Pour le front-end, j\'ai utilisé HTML, CSS, et Bootstrap afin de structurer efficacement mon calendrier. J\'ai également intégré JavaScript pour la gestion du mode sombre et des pop-ups. Côté back-end, j\'ai utilisé PHP, SQL et MySQL.'
+                description: 'Easy Ocre est un projet que j\'ai présenté le jour de ma soutenance pour le titre de développeur web. J\'ai voulu allier deux de mes passions : le développement et le jeu Dofus. J\'ai donc créé une plateforme qui permet aux joueurs de suivre l\'avancement de leur quête "l\'éternelle moisson", une quête longue et fastidieuse. Pour le front-end, j\'ai utilisé HTML, CSS, et Bootstrap afin de structurer efficacement mon calendrier. J\'ai également intégré JavaScript pour la gestion du mode sombre et des pop-ups. Côté back-end, j\'ai utilisé PHP, SQL et MySQL.'
             },
             'Work Skill': {
                 title: 'Work Skill',
                 logo: 'images/logo-ws.png',
-                description: 'Work Skill est un projet de groupe réalisé pendant ma formation de développeur web avec Simplon. Ce projet, commandité par un client, visait à créer une plateforme facilitant la reconversion professionnelle pour les seniors. Pour le front-end, nous avons utilisé HTML, CSS, et JavaScript. Pour le back-end, nous avons utilisé pour PHP, SQL et MySQL.'
+                description: 'Work Skill est un projet de groupe réalisé pendant ma formation de développeur web avec Simplon. Ce projet, commandité par un client, visait à créer une plateforme facilitant la reconversion professionnelle pour les seniors. Pour le front-end, nous avons utilisé HTML, CSS et JavaScript. Pour le back-end, nous avons utilisé PHP, SQL et MySQL.'
             },
             'My Monki': {
                 title: 'My Monki',
                 logo: 'images/logo-monki.png',
-                description: 'My Monki est un projet réalisé en binôme dans le cadre d\'un ECF pendant ma formation de développeur web avec Simplon. Notre mission était de créer un blog, et nous avons choisi le thème des singes, un sujet à la fois captivant et amusant. Pour le front-end, nous avons utilisé HTML, CSS et Bootstrap, qui nous a permis de gagner du temps. Pour le back-end, nous avons utilisé PHP, SQL et MySQL.'
+                description: 'My Monki est un projet réalisé en binôme dans le cadre d\'un ECF pendant ma formation de développeur web avec Simplon. Notre mission était de créer un blog, et nous avons choisi le thème des singes, un sujet à la fois captivant et amusant. Pour le front-end, nous avons utilisé HTML, CSS et Bootstrap, ce qui nous a permis de gagner du temps. Pour le back-end, nous avons utilisé PHP, SQL et MySQL.'
             },
             'Booki': {
                 title: 'Booki',
@@ -123,43 +141,67 @@ $(document).ready(function() {
             }
         };
 
-        var details = projectDetails[project];
+        const details = projectDetails[project];
         $popup.find('h2').text(details.title);
         $popup.find('#popup-logo').attr('src', details.logo);
         $popup.find('.popup-body p').text(details.description);
         $popup.add($overlay).fadeIn();
         $('body').addClass('popup-open');
+        $navbar.addClass('navbar-disabled');
+
+        // Place le focus sur le bouton de fermeture du popup pour l'accessibilité
+        $('.close-btn').focus();
+
+        // Sauvegarde le bouton de déclenchement pour restaurer le focus plus tard
+        $popup.data('trigger', $trigger);
     });
 
+    // Ferme le popup et réactive la navigation
     $('.close-btn').on('click', function() {
         $popup.add($overlay).fadeOut();
         $('body').removeClass('popup-open');
+        $navbar.removeClass('navbar-disabled');
+        
+        // Restaure le focus sur l'élément qui a déclenché le popup
+        $popup.data('trigger').focus();
     });
 
+    // Gestion des clics à l'extérieur du popup et du menu hamburger pour les fermer
     $(window).on('click', function(e) {
-        if ($(e.target).is('#popup') || $(e.target).is('#overlay')) {
+        if ($(e.target).is('#popup, #overlay')) {
             $popup.add($overlay).fadeOut();
             $('body').removeClass('popup-open');
+            $navbar.removeClass('navbar-disabled');
+            $popup.data('trigger').focus();
+        }
+        if (!$(e.target).closest('.navbar').length && $navbarToggler.attr('aria-expanded') === 'true') {
+            $('.navbar-collapse').collapse('hide');
+            $('body').removeClass('no-scroll');
         }
     });
 
+    // Initialisation des animations et des observateurs
     initialiserTyped();
     initialiserMarquee();
     initialiserIntersectionObserver();
 
+    // Gestion des événements de défilement et de redimensionnement
     $(window).on('scroll', debounce(gererScroll, 100));
     $navbarToggler.on('click', gererClicHamburger);
     $navbarNavLinks.on('click', gererClicLien);
     $(window).on('resize', gererRedimensionnement);
 
+    // Gère le défilement fluide pour les liens de navigation
     $('.navbar-nav a').on('click', gererDefilementFluide);
 
-    var initialWidth = $(window).width();
+    // Initialisation de l'état de la barre de navigation lors du chargement de la page
+    const initialWidth = $(window).width();
     if (initialWidth < 992 && $navbarToggler.attr('aria-expanded') === 'true') {
-        $navbar.addClass('show-bg');
+        $navbar.addClass(showBgClass);
     }
 });
 
+// Fonction de debounce pour limiter la fréquence d'exécution des fonctions de défilement
 function debounce(func, wait) {
     let timeout;
     return function(...args) {
