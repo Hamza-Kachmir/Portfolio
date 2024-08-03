@@ -682,8 +682,6 @@ section.visible {
     transform: translateY(50px);
 }
 
-
-
 @media (min-width: 992px) {
     .popup-content {
         max-width: 800px;
