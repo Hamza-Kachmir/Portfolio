@@ -4,7 +4,7 @@ $(document).ready(function() {
     const $navbarNavLinks = $('.navbar-nav .nav-link');
     const $popup = $('#popup');
     const $overlay = $('#overlay');
-    const $btnSecondary = $('.btn-info');
+    const $btnInfo = $('.btn-info');
     const stickyClass = 'stickyadd';
     const showBgClass = 'show-bg';
 
@@ -107,7 +107,7 @@ $(document).ready(function() {
     }
 
     // Gestion de l'affichage du popup avec les détails du projet
-    $btnSecondary.on('click', function(e) {
+    $btnInfo.on('click', function(e) {
         e.preventDefault();
         const project = $(this).data('popup');
         // Sauvegarde l'élément qui a déclenché le popup pour restaurer le focus plus tard

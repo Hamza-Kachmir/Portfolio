@@ -1,4 +1,4 @@
-/* Variables CSS */
+/* CSS variables */
 :root {
     --color-bg: #323232;
     --color-bg-alt: #1a1a1a;
@@ -12,7 +12,7 @@
     --transition-duration: 0.5s;
 }
 
-/* Reset Styles */
+/* Base rules */
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +20,6 @@
     text-decoration: none;
 }
 
-/* Base Styles */
 body {
     font-family: var(--font-primary);
     background: var(--color-bg);
@@ -47,7 +46,7 @@ p {
     line-height: 2;
 }
 
-/* Scrollbar Styles */
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 20px;
 }
@@ -67,7 +66,7 @@ p {
     background: var(--color-bg-hover);
 }
 
-/* Navigation Bar */
+/* Navbar */
 nav.r-nav {
     background: transparent;
     padding: 20px 0;
@@ -152,7 +151,7 @@ header {
     font-size: 52px;
 }
 
-/* Section: About */
+/* About */
 .about {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -188,7 +187,7 @@ header {
     margin: 0 10px;
 }
 
-/* Card Styles */
+/* Card */
 .card {
     display: flex;
     flex-direction: column;
@@ -240,7 +239,6 @@ header {
     height: 100%;
 }
 
-/* Card-specific customizations */
 .project-card, .about-card {
     margin-bottom: 20px;
 }
@@ -250,7 +248,7 @@ header {
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Section: Experience */
+/* Exp */
 .exp-class {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -266,7 +264,7 @@ header {
     width: 80px;
 }
 
-/* Section: Skills */
+/* Skills */
 .skills-class {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -349,7 +347,7 @@ header {
     margin-top: -20px;
 }
 
-/* Section: Projects */
+/* Projects */
 .realisations-class {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -389,7 +387,7 @@ header {
     margin-left: 12px;
 }
 
-/* Section: Contact */
+/* Contact */
 .contact {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -458,7 +456,7 @@ header {
     box-shadow: 0 0 0px 1000px var(--color-bg) inset;
 }
 
-/* Button Styles */
+/* Button */
 .btn {
     display: flex;
     align-items: center;
@@ -488,31 +486,31 @@ header {
     transition: var(--transition-duration) all;
 }
 
-.btn.btn-info {
-    border: none;
-    background-color: var(--color-bg-light);
-    color: var(--color-text);
+.btn-primary, .btn-info {
+    background-color: var(--color-bg-light) !important;
+    color: var(--color-text) !important;
+    border: none !important;
+    border-radius: 20px !important;
+    height: 50px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 10px !important;
+    font-size: 16px !important;
+    text-align: center !important;
+    transition: var(--transition-duration) all !important;
 }
 
-.btn.btn-info:hover {
-    background-color: rgb(75, 85, 99);
+.btn-primary:hover, .btn-info:hover {
+    background-color: rgb(75, 85, 99) !important;
+    color: var(--color-text) !important;
 }
 
-.btn.btn-info:active {
-    background-color: var(--color-bg-light);
-}
-
-.btn.btn-primary {
-    background-color: var(--color-bg-light);
-    color: var(--color-text);
-}
-
-.btn.btn-primary:hover {
-    background-color: rgb(75, 85, 99);
-}
-
-.btn.btn-primary:active {
-    background-color: var(--color-bg-light);
+.btn-primary:active, .btn-info:active {
+    background-color: var(--color-bg-hover) !important;
+    color: var(--color-text) !important;
+    transition: var(--transition-duration) all !important;
 }
 
 .btn-container {
@@ -521,29 +519,6 @@ header {
     gap: 10px;
     margin-top: 20px;
     width: 100%;
-}
-
-.btn-container .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 20px;
-    text-align: center;
-    width: 48%;
-}
-
-.btn-secondary, .btn-primary {
-    background-color: var(--color-bg-light);
-    border: none;
-    border-radius: 20px;
-    height: 50px;
-    width: 100%;
-}
-
-.btn-secondary:hover, .btn-primary:hover {
-    background-color: rgb(75, 85, 99);
 }
 
 .contact .btn {
@@ -578,9 +553,7 @@ footer p {
     margin-bottom: 20px;
 }
 
-/* Styles Requiring JavaScript */
-
-/* Popup Styles */
+/* JavaScript */
 .popup {
     display: none;
     position: fixed;
@@ -665,12 +638,10 @@ body.popup-open {
     pointer-events: none;
 }
 
-/* Disable scrolling */
 .no-scroll {
     overflow: hidden;
 }
 
-/* Animation sections */
 section {
     opacity: 0;
     transform: translateY(50px);
@@ -682,6 +653,7 @@ section.visible {
     transform: translateY(50px);
 }
 
+/* Media queries */
 @media (min-width: 992px) {
     .popup-content {
         max-width: 800px;
@@ -695,5 +667,17 @@ section.visible {
 
     .popup-content p {
         font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 1199px) {
+    .email-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .email-text {
+        font-size: 20px;
     }
 }
