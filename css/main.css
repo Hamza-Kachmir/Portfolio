@@ -671,6 +671,17 @@ body.popup-open {
 }
 
 /* Animation sections */
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s ease-in-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(50px);
+}
+
 @media (min-width: 992px) {
     .popup-content {
         max-width: 800px;
