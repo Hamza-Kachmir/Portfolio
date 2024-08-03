@@ -39,7 +39,6 @@ h2 {
     margin-bottom: 50px;
     font-weight: bold;
     font-size: 30px;
-    padding-top: 100px;
 }
 
 p {
@@ -154,6 +153,7 @@ header {
 
 /* About */
 .about {
+    padding-top: 100px;
     padding-bottom: 100px;
 }
 
@@ -250,6 +250,7 @@ header {
 
 /* Exp */
 .exp-class {
+    padding-top: 100px;
     padding-bottom: 100px;
 }
 
@@ -265,6 +266,7 @@ header {
 
 /* Skills */
 .skills-class {
+    padding-top: 100px;
     padding-bottom: 100px;
 }
 
@@ -347,6 +349,7 @@ header {
 
 /* Projects */
 .realisations-class {
+    padding-top: 100px;
     padding-bottom: 100px;
 }
 
@@ -386,6 +389,7 @@ header {
 
 /* Contact */
 .contact {
+    padding-top: 100px;
     padding-bottom: 100px;
 }
 
@@ -646,7 +650,7 @@ section {
 
 section.visible {
     opacity: 1;
-    transform: translateY(0px);
+    transform: translateY(50px);
 }
 
 /* Media queries */
