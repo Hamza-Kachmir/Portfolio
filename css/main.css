@@ -10,6 +10,7 @@
     --font-primary: 'Nunito', sans-serif;
     --font-secondary: 'Montserrat', sans-serif;
     --transition-duration: 0.5s;
+    --base-font-size: 16px;
 }
 
 /* Base rules */
@@ -20,12 +21,17 @@
     text-decoration: none;
 }
 
+html {
+    font-size: var(--base-font-size);
+}
+
 body {
     font-family: var(--font-primary);
     background: var(--color-bg);
     color: var(--color-text);
     scrollbar-color: var(--color-bg-light) var(--color-bg-alt);
     scrollbar-width: thin;
+    line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -36,30 +42,30 @@ h1, h2, h3, h4, h5, h6 {
 h2 {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 3rem;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 1.875rem;
 }
 
 p {
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 2;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-    width: 20px;
+    width: 1.25rem;
 }
 
 ::-webkit-scrollbar-track {
     background: var(--color-bg-alt);
-    border-radius: 10px;
+    border-radius: 0.625rem;
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--color-bg-light);
-    border-radius: 10px;
-    border: 3px solid var(--color-bg-alt);
+    border-radius: 0.625rem;
+    border: 0.1875rem solid var(--color-bg-alt);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -69,22 +75,22 @@ p {
 /* Navbar */
 nav.r-nav {
     background: transparent;
-    padding: 20px 0;
+    padding: 1.25rem 0;
     transition: var(--transition-duration) all;
 }
 
 nav.r-nav.stickyadd {
     background: var(--color-bg-light);
-    padding: 10px 0;
-    box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.1);
+    padding: 0.625rem 0;
+    box-shadow: 0 0.0625rem 0.5rem 0.1875rem rgba(0, 0, 0, 0.1);
 }
 
 nav .navbar-brand {
-    font-size: 30px;
+    font-size: 1.875rem;
 }
 
 .navbar-brand img {
-    height: 80px;
+    height: 5rem;
     width: auto;
 }
 
@@ -98,12 +104,12 @@ nav .navbar-brand {
 }
 
 nav .navbar-nav li {
-    margin-left: 15px;
+    margin-left: 0.9375rem;
 }
 
 nav .navbar-nav li a {
     color: var(--color-text) !important;
-    font-size: 16px;
+    font-size: 1rem;
     letter-spacing: 0.05em;
     font-weight: 600;
 }
@@ -115,7 +121,7 @@ nav.r-nav.show-bg {
 :target::before {
     content: "";
     display: block;
-    height: 150px;
+    height: 9.375rem;
     visibility: hidden;
 }
 
@@ -144,32 +150,32 @@ header {
 }
 
 .content-box h4 {
-    font-size: 30px;
+    font-size: 1.875rem;
 }
 
 .content-box h1 {
-    font-size: 52px;
+    font-size: 3.25rem;
 }
 
 /* About */
 .about {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 6.25rem;
+    padding-bottom: 6.25rem;
 }
 
 .about .card-body {
-    padding-top: 35px;
+    padding-top: 2.1875rem;
 }
 
 .about li a {
     color: var(--color-text);
     display: inline-block;
-    height: 42px;
-    width: 42px;
-    font-size: 20px;
-    border: 2px solid var(--color-border);
+    height: 2.625rem;
+    width: 2.625rem;
+    font-size: 1.25rem;
+    border: 0.125rem solid var(--color-border);
     border-radius: 50%;
-    line-height: 40px;
+    line-height: 2.5rem;
     transition: var(--transition-duration) all;
     text-align: center;
 }
@@ -184,7 +190,7 @@ header {
 
 .list-inline-item {
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 0.625rem;
 }
 
 /* Card */
@@ -195,8 +201,8 @@ header {
     align-items: center;
     border: none;
     overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 1.25rem;
+    box-shadow: 0 0 0.75rem 0 rgba(0, 0, 0, 0.2);
     background: var(--color-bg-alt);
     color: var(--color-text);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -204,22 +210,22 @@ header {
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.625rem);
+    box-shadow: 0 0.9375rem 1.875rem rgba(0, 0, 0, 0.2);
 }
 
 .card-body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
+    padding: 1.25rem;
     flex-grow: 1;
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .card-title {
     font-weight: 800;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .text-card {
@@ -229,49 +235,49 @@ header {
 }
 
 .card-logo {
-    margin-left: 10px;
-    max-height: 60px;
+    margin-left: 0.625rem;
+    max-height: 3.75rem;
 }
 
 .card-custom {
-    border-radius: 20px;
-    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 1.25rem;
+    box-shadow: 0 0 0.75rem 0 rgba(0, 0, 0, 0.2);
     height: 100%;
 }
 
 .project-card, .about-card {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
 .card-custom:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.625rem) scale(1.02);
+    box-shadow: 0 1.25rem 1.875rem rgba(0, 0, 0, 0.2);
 }
 
 /* Exp */
 .exp-class {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 6.25rem;
+    padding-bottom: 6.25rem;
 }
 
 .dates {
     display: flex;
     justify-content: space-between;
-    font-size: 15px;
+    font-size: 0.9375rem;
 }
 
 .logo-studi {
-    width: 80px;
+    width: 5rem;
 }
 
 /* Skills */
 .skills-class {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 6.25rem;
+    padding-bottom: 6.25rem;
 }
 
 .marquee-content {
-    padding: 5px 0;
+    padding: 0.3125rem 0;
 }
 
 .skills-marquee {
@@ -281,7 +287,7 @@ header {
 }
 
 .skills-marquee i, .skills-marquee img {
-    margin: 0 30px;
+    margin: 0 1.875rem;
     font-size: 3rem;
     color: #333;
     vertical-align: middle;
@@ -295,7 +301,7 @@ header {
 
 .fab.fa-html5 {
     color: #e34c26;
-    margin-left: -10px;
+    margin-left: -0.625rem;
 }
 
 .fab.fa-css3-alt {
@@ -343,37 +349,37 @@ header {
 }
 
 .skill-icon {
-    width: 50px;
-    margin-top: -20px;
+    width: 3.125rem;
+    margin-top: -1.25rem;
 }
 
 /* Projects */
 .realisations-class {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 6.25rem;
+    padding-bottom: 6.25rem;
 }
 
 .project-card {
-    min-height: 450px;
+    min-height: 28.125rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .gg-logo {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 .booki-logo {
-    max-width: 100px;
+    max-width: 6.25rem;
 }
 
 .ocre-logo {
-    width: 70px;
+    width: 4.375rem;
 }
 
 .ws-logo {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 .github-btn {
@@ -383,18 +389,18 @@ header {
 }
 
 .github-btn .fab {
-    font-size: 24px;
-    margin-left: 12px;
+    font-size: 1.5rem;
+    margin-left: 0.75rem;
 }
 
 /* Contact */
 .contact {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 6.25rem;
+    padding-bottom: 6.25rem;
 }
 
 .contact-card .card-body {
-    padding-top: 30px;
+    padding-top: 1.875rem;
     text-align: center;
 }
 
@@ -408,19 +414,19 @@ header {
 
 .contact-card p {
     font-size: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 .card-contact {
-    padding-top: 15px;
+    padding-top: 0.9375rem;
 }
 
 .contact__form input, .contact__form textarea {
     background-color: var(--color-bg);
     color: var(--color-text);
-    border: 1px solid #555;
-    border-radius: 5px;
-    padding: 10px;
+    border: 0.0625rem solid #555;
+    border-radius: 0.3125rem;
+    padding: 0.625rem;
     width: 100%;
 }
 
@@ -433,7 +439,7 @@ header {
     background-color: var(--color-bg);
     color: var(--color-text);
     outline: none;
-    border: 1px solid #777;
+    border: 0.0625rem solid #777;
 }
 
 .contact__form input::selection, .contact__form textarea::selection {
@@ -444,7 +450,7 @@ header {
 .contact__form input:-webkit-autofill, .contact__form textarea:-webkit-autofill {
     background-color: var(--color-bg) !important;
     color: var(--color-text) !important;
-    border: 1px solid #777 !important;
+    border: 0.0625rem solid #777 !important;
     box-shadow: 0 0 0px 1000px var(--color-bg) inset;
     -webkit-text-fill-color: var(--color-text) !important;
 }
@@ -452,7 +458,7 @@ header {
 .contact__form input:-moz-autofill, .contact__form textarea:-moz-autofill {
     background-color: var(--color-bg) !important;
     color: var(--color-text) !important;
-    border: 1px solid #777 !important;
+    border: 0.0625rem solid #777 !important;
     box-shadow: 0 0 0px 1000px var(--color-bg) inset;
 }
 
@@ -461,19 +467,19 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 20px;
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+    border-radius: 1.25rem;
     text-align: center;
     width: 100%;
-    height: 50px;
+    height: 3.125rem;
 }
 
 .btn.btn-cv {
     color: var(--color-text);
-    border: 2px solid var(--color-text);
-    border-radius: 20px;
-    padding: 10px 20px;
+    border: 0.125rem solid var(--color-text);
+    border-radius: 1.25rem;
+    padding: 0.625rem 1.25rem;
     display: inline-block;
     font-weight: bold;
     transition: var(--transition-duration) all;
@@ -490,14 +496,14 @@ header {
     background-color: var(--color-bg-light) !important;
     color: var(--color-text) !important;
     border: none !important;
-    border-radius: 20px !important;
-    height: 50px !important;
+    border-radius: 1.25rem !important;
+    height: 3.125rem !important;
     width: 100% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 10px !important;
-    font-size: 16px !important;
+    padding: 0.625rem !important;
+    font-size: 1rem !important;
     text-align: center !important;
     transition: var(--transition-duration) all !important;
 }
@@ -516,15 +522,15 @@ header {
 .btn-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 0.625rem;
+    margin-top: 1.25rem;
     width: 100%;
 }
 
 .contact .btn {
     width: 100%;
-    max-width: 200px;
-    padding: 10px 20px;
+    max-width: 12.5rem;
+    padding: 0.625rem 1.25rem;
     margin: 0 auto;
 }
 
@@ -541,7 +547,7 @@ footer {
     align-items: center;
     margin: 0 auto;
     width: 80%;
-    border-top: 3px solid var(--color-bg-light);
+    border-top: 0.1875rem solid var(--color-bg-light);
     font-weight: bold;
     transition: transform 0.5s ease-in-out;
 }
@@ -549,8 +555,8 @@ footer {
 footer p {
     white-space: wrap;
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
 }
 
 /* JavaScript */
@@ -562,7 +568,7 @@ footer p {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    max-width: 800px;
+    max-width: 50rem;
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
     cursor: pointer;
@@ -571,13 +577,13 @@ footer p {
 .popup-content {
     background-color: var(--color-bg-alt);
     color: var(--color-text);
-    padding: 20px;
-    border: 1px solid #888;
-    border-radius: 10px;
+    padding: 1.25rem;
+    border: 0.0625rem solid #888;
+    border-radius: 0.625rem;
     position: relative;
     width: 100%;
-    height: 500px;
-    padding: 40px;
+    height: 31.25rem;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -588,19 +594,19 @@ footer p {
 
 .popup-body {
     overflow-y: auto;
-    max-height: calc(100% - 120px);
+    max-height: calc(100% - 7.5rem);
     width: 100%;
-    padding: 0 20px;
+    padding: 0 1.25rem;
 }
 
 .close-btn {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-weight: bold;
     position: absolute;
-    right: 10px;
-    top: 5px;
+    right: 0.625rem;
+    top: 0.3125rem;
     cursor: pointer;
 }
 
@@ -626,12 +632,12 @@ body.popup-open {
 }
 
 .popup-content img {
-    max-width: 100px;
-    margin: 0 auto 20px;
+    max-width: 6.25rem;
+    margin: 0 auto 1.25rem;
 }
 
 #popup-logo[src*="logo-monki"] {
-    max-width: 170px;
+    max-width: 10.625rem;
 }
 
 .navbar-disabled {
@@ -644,13 +650,13 @@ body.popup-open {
 
 section {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(3.125rem);
     transition: all 0.5s ease-in-out;
 }
 
 section.visible {
     opacity: 1;
-    transform: translateY(50px);
+    transform: translateY(3.125rem);
 }
 
 /* Media queries */
@@ -663,9 +669,9 @@ section.visible {
 
 @media (min-width: 992px) {
     .popup-content {
-        max-width: 800px;
+        max-width: 50rem;
         height: auto;
-        padding: 40px;
+        padding: 2.5rem;
     }
 
     .popup-content h2 {

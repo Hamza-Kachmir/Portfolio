@@ -1,7 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function () {
+    // Sélectionne et stocke les éléments fréquemment utilisés pour améliorer les performances
+    const $window = $(window);
+    const $body = $('body');
     const $navbar = $('.r-nav');
     const $navbarToggler = $('.navbar-toggler');
     const $navbarNavLinks = $('.navbar-nav .nav-link');
+    const $navbarCollapse = $('.navbar-collapse');
     const $popup = $('#popup');
     const $overlay = $('#overlay');
     const $btnInfo = $('.btn-info');
@@ -10,14 +14,14 @@ $(document).ready(function() {
 
     // Gestion de la classe sticky et de l'arrière-plan de la barre de navigation lors du défilement
     function gererScroll() {
-        const scroll = $(window).scrollTop();
+        const scroll = $window.scrollTop();
         $navbar.toggleClass(stickyClass, scroll >= 50);
     }
 
     // Gestion de l'état du menu hamburger et du défilement du corps de la page
     function gererClicHamburger() {
         const isToggled = $navbarToggler.attr('aria-expanded') === 'true';
-        $('body').toggleClass('no-scroll', isToggled);
+        $body.toggleClass('no-scroll', isToggled);
 
         if (!$navbar.hasClass(stickyClass)) {
             $navbar.toggleClass(showBgClass);
@@ -26,13 +30,13 @@ $(document).ready(function() {
 
     // Cache le menu de navigation et réactive le défilement lors du clic sur un lien
     function gererClicLien() {
-        $('.navbar-collapse').collapse('hide');
-        $('body').removeClass('no-scroll');
+        $navbarCollapse.collapse('hide');
+        $body.removeClass('no-scroll');
     }
 
     // Gestion de l'affichage de l'arrière-plan de la barre de navigation lors du redimensionnement de la fenêtre
     function gererRedimensionnement() {
-        const width = $(window).width();
+        const width = $window.width();
         const isNavbarToggled = $navbarToggler.attr('aria-expanded') === 'true';
 
         if (width >= 992) {
@@ -74,8 +78,8 @@ $(document).ready(function() {
         const targetElement = $(target);
 
         if (targetElement.length) {
-            const targetPosition = targetElement.offset().top - $('.navbar').outerHeight();
-            const currentPosition = $(window).scrollTop();
+            const targetPosition = targetElement.offset().top - $navbar.outerHeight();
+            const currentPosition = $window.scrollTop();
 
             // Vérifie si la position actuelle est différente de la cible pour éviter les animations inutiles
             if (Math.abs(currentPosition - targetPosition) > 1) {
@@ -107,7 +111,7 @@ $(document).ready(function() {
     }
 
     // Gestion de l'affichage du popup avec les détails du projet
-    $btnInfo.on('click', function(e) {
+    $btnInfo.on('click', function (e) {
         e.preventDefault();
         const project = $(this).data('popup');
         // Sauvegarde l'élément qui a déclenché le popup pour restaurer le focus plus tard
@@ -146,7 +150,7 @@ $(document).ready(function() {
         $popup.find('#popup-logo').attr('src', details.logo);
         $popup.find('.popup-body p').text(details.description);
         $popup.add($overlay).fadeIn();
-        $('body').addClass('popup-open');
+        $body.addClass('popup-open');
         $navbar.addClass('navbar-disabled');
 
         // Place le focus sur le bouton de fermeture du popup pour l'accessibilité
@@ -157,26 +161,26 @@ $(document).ready(function() {
     });
 
     // Ferme le popup et réactive la navigation
-    $('.close-btn').on('click', function() {
+    $('.close-btn').on('click', function () {
         $popup.add($overlay).fadeOut();
-        $('body').removeClass('popup-open');
+        $body.removeClass('popup-open');
         $navbar.removeClass('navbar-disabled');
-        
+
         // Restaure le focus sur l'élément qui a déclenché le popup
         $popup.data('trigger').focus();
     });
 
     // Gestion des clics à l'extérieur du popup et du menu hamburger pour les fermer
-    $(window).on('click', function(e) {
+    $window.on('click', function (e) {
         if ($(e.target).is('#popup, #overlay')) {
             $popup.add($overlay).fadeOut();
-            $('body').removeClass('popup-open');
+            $body.removeClass('popup-open');
             $navbar.removeClass('navbar-disabled');
             $popup.data('trigger').focus();
         }
         if (!$(e.target).closest('.navbar').length && $navbarToggler.attr('aria-expanded') === 'true') {
-            $('.navbar-collapse').collapse('hide');
-            $('body').removeClass('no-scroll');
+            $navbarCollapse.collapse('hide');
+            $body.removeClass('no-scroll');
         }
     });
 
@@ -186,16 +190,16 @@ $(document).ready(function() {
     initialiserIntersectionObserver();
 
     // Gestion des événements de défilement et de redimensionnement
-    $(window).on('scroll', debounce(gererScroll, 100));
+    $window.on('scroll', debounce(gererScroll, 100));
     $navbarToggler.on('click', gererClicHamburger);
     $navbarNavLinks.on('click', gererClicLien);
-    $(window).on('resize', gererRedimensionnement);
+    $window.on('resize', gererRedimensionnement);
 
     // Gère le défilement fluide pour les liens de navigation
     $('.navbar-nav a').on('click', gererDefilementFluide);
 
     // Initialisation de l'état de la barre de navigation lors du chargement de la page
-    const initialWidth = $(window).width();
+    const initialWidth = $window.width();
     if (initialWidth < 992 && $navbarToggler.attr('aria-expanded') === 'true') {
         $navbar.addClass(showBgClass);
     }
@@ -204,7 +208,7 @@ $(document).ready(function() {
 // Fonction de debounce pour limiter la fréquence d'exécution des fonctions de défilement
 function debounce(func, wait) {
     let timeout;
-    return function(...args) {
+    return function (...args) {
         clearTimeout(timeout);
         timeout = setTimeout(() => func.apply(this, args), wait);
     };
