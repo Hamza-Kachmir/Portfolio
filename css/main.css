@@ -648,17 +648,6 @@ body.popup-open {
     overflow: hidden;
 }
 
-section {
-    opacity: 0;
-    transform: translateY(3.125rem);
-    transition: all 0.5s ease-in-out;
-}
-
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* Media queries */
 @media (max-width: 1199px) {
     .contacts {
