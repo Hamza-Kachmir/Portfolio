@@ -656,7 +656,7 @@ section {
 
 section.visible {
     opacity: 1;
-    transform: translateY(3.125rem);
+    transform: translateY(0);
 }
 
 /* Media queries */
