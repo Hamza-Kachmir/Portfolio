@@ -1,14 +1,10 @@
 $(document).ready(function () {
-    // Sélectionne et stocke les éléments fréquemment utilisés pour améliorer les performances
     const $window = $(window);
     const $body = $('body');
     const $navbar = $('.r-nav');
     const $navbarToggler = $('.navbar-toggler');
     const $navbarNavLinks = $('.navbar-nav .nav-link');
     const $navbarCollapse = $('.navbar-collapse');
-    const $popup = $('#popup');
-    const $overlay = $('#overlay');
-    const $btnInfo = $('.btn-info');
     const stickyClass = 'stickyadd';
     const showBgClass = 'show-bg';
 
@@ -49,9 +45,9 @@ $(document).ready(function () {
     // Initialisation des animations de texte avec Typed.js
     function initialiserTyped() {
         new Typed(".element", {
-            strings: ["Hamza Kachmir", "un développeur", "à la recherche d'une alternance"],
+            strings: ["Hamza Kachmir", "à la recherche d'une alternance"],
             smartBackspace: true,
-            typeSpeed: 80,
+            typeSpeed: 90,
             backSpeed: 70,
             loop: true,
             loopCount: Infinity,
@@ -110,74 +106,8 @@ $(document).ready(function () {
         });
     }
 
-    // Gestion de l'affichage du popup avec les détails du projet
-    $btnInfo.on('click', function (e) {
-        e.preventDefault();
-        const project = $(this).data('popup');
-        // Sauvegarde l'élément qui a déclenché le popup pour restaurer le focus plus tard
-        const $trigger = $(this);
-
-        const projectDetails = {
-            'GiveGood': {
-                title: 'GiveGood',
-                logo: 'images/logo-givegood.png',
-                description: 'GiveGood est un projet que j\'ai développé pendant ma formation d\'Apple Foundation Program. Ce projet a été réalisé en collaboration avec 3 autres apprenants. Mon rôle principal au sein de l\'équipe était de gérer le regroupement du code, assurant ainsi une intégration fluide et cohérente des contributions de chacun. Nous avons utilisé Figma pour concevoir les maquettes et le prototype de notre application. Pour le développement, nous avons utilisé Swift et SwiftUI.'
-            },
-            'Easy Ocre': {
-                title: 'Easy Ocre',
-                logo: 'images/logo-ocre.png',
-                description: 'Easy Ocre est un projet que j\'ai présenté le jour de ma soutenance pour le titre de développeur web. J\'ai voulu allier deux de mes passions : le développement et le jeu Dofus. J\'ai donc créé une plateforme qui permet aux joueurs de suivre l\'avancement de leur quête "l\'éternelle moisson", une quête longue et fastidieuse. Pour le front-end, j\'ai utilisé HTML, CSS, et Bootstrap afin de structurer efficacement mon calendrier. J\'ai également intégré JavaScript pour la gestion du mode sombre et des pop-ups. Côté back-end, j\'ai utilisé PHP, SQL et MySQL.'
-            },
-            'Work Skill': {
-                title: 'Work Skill',
-                logo: 'images/logo-ws.png',
-                description: 'Work Skill est un projet de groupe réalisé pendant ma formation de développeur web avec Simplon. Ce projet, commandité par un client, visait à créer une plateforme facilitant la reconversion professionnelle pour les seniors. Pour le front-end, nous avons utilisé HTML, CSS et JavaScript. Pour le back-end, nous avons utilisé PHP, SQL et MySQL.'
-            },
-            'My Monki': {
-                title: 'My Monki',
-                logo: 'images/logo-monki.png',
-                description: 'My Monki est un projet réalisé en binôme dans le cadre d\'un ECF pendant ma formation de développeur web avec Simplon. Notre mission était de créer un blog, et nous avons choisi le thème des singes, un sujet à la fois captivant et amusant. Pour le front-end, nous avons utilisé HTML, CSS et Bootstrap, ce qui nous a permis de gagner du temps. Pour le back-end, nous avons utilisé PHP, SQL et MySQL.'
-            },
-            'Booki': {
-                title: 'Booki',
-                logo: 'images/booki_logo.svg',
-                description: 'Booki est le tout premier projet que j\'ai réalisé pendant ma reconversion professionnelle dans le domaine du développement web. L\'objectif de ce projet était de me familiariser avec les bases du développement web en créant un site d\'hébergement. Ce projet m\'a permis de découvrir et d\'appliquer les concepts fondamentaux du front-end. J\'ai utilisé uniquement HTML et CSS.'
-            }
-        };
-
-        const details = projectDetails[project];
-        $popup.find('h2').text(details.title);
-        $popup.find('#popup-logo').attr('src', details.logo);
-        $popup.find('.popup-body p').text(details.description);
-        $popup.add($overlay).fadeIn();
-        $body.addClass('popup-open');
-        $navbar.addClass('navbar-disabled');
-
-        // Place le focus sur le bouton de fermeture du popup pour l'accessibilité
-        $('.close-btn').focus();
-
-        // Sauvegarde le bouton de déclenchement pour restaurer le focus plus tard
-        $popup.data('trigger', $trigger);
-    });
-
-    // Ferme le popup et réactive la navigation
-    $('.close-btn').on('click', function () {
-        $popup.add($overlay).fadeOut();
-        $body.removeClass('popup-open');
-        $navbar.removeClass('navbar-disabled');
-
-        // Restaure le focus sur l'élément qui a déclenché le popup
-        $popup.data('trigger').focus();
-    });
-
-    // Gestion des clics à l'extérieur du popup et du menu hamburger pour les fermer
+    // Gestion des clics à l'extérieur du menu hamburger pour le fermer
     $window.on('click', function (e) {
-        if ($(e.target).is('#popup, #overlay')) {
-            $popup.add($overlay).fadeOut();
-            $body.removeClass('popup-open');
-            $navbar.removeClass('navbar-disabled');
-            $popup.data('trigger').focus();
-        }
         if (!$(e.target).closest('.navbar').length && $navbarToggler.attr('aria-expanded') === 'true') {
             $navbarCollapse.collapse('hide');
             $body.removeClass('no-scroll');
@@ -213,3 +143,28 @@ function debounce(func, wait) {
         timeout = setTimeout(() => func.apply(this, args), wait);
     };
 }
+
+// Fonction pour calculer l'âge dynamiquement
+function calculateAge() {
+    const birthDate = new Date(1999, 1, 14);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    document.getElementById("age").textContent = age;
+}
+
+// Fonction pour calculer l'année dynamiquement
+function updateYear() {
+    const yearSpan = document.getElementById("year");
+    const currentYear = new Date().getFullYear();
+    yearSpan.textContent = currentYear;
+}
+
+// Initialisation des fonctions au chargement
+window.onload = function() {
+    calculateAge();
+    updateYear();
+};

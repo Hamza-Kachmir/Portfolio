@@ -26,24 +26,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarId">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">À propos de moi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#experience" class="nav-link">Mon parcours</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#skills" class="nav-link">Mes compétences</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#projects" class="nav-link">Mes projets</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">Me contacter</a>
-                    </li>
+                    <li class="nav-item"><a href="#home" class="nav-link">Accueil</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">À propos de moi</a></li>
+                    <li class="nav-item"><a href="#experience" class="nav-link">Mon parcours</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Mes compétences</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Mes projets</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Me contacter</a></li>
                 </ul>
             </div>
         </div>
@@ -63,17 +51,21 @@
         </div>
     </header>
 
-    <section class="about r-p" id="about">
+    <section class="about r-p py-5" id="about">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12">
-                    <h2>À propos de moi</h2>
-                </div>
+                <div class="col-12"><h2>À propos de moi</h2></div>
                 <div class="col-sm-12 col-md-10 col-lg-8">
                     <div class="card text-card card-custom about-card">
                         <div class="card-body">
                             <h4 class="card-title mt-0 text-card">Bonjour ! Je suis Hamza Kachmir</h4>
-                            <p>J'ai 25 ans et je viens du sud de la France. Après avoir enchainé des boulots en intérim, j'ai décidé de me reconvertir dans le domaine du développement web, une passion qui m'a toujours attiré. Cette reconversion m'a conduit à obtenir mon titre de développeur web. Aujourd'hui, je suis à la recherche d'une entreprise qui pourrait m'accueillir en alternance. Je suis convaincu que l'apprentissage sur le terrain est essentiel pour consolider mes compétences acquises et pour se familiariser avec les réalités du métier. Je suis motivé, curieux et déterminé à réussir dans ce domaine. J'ai hâte de pouvoir contribuer à des projets concrets et d'en apprendre au quotidien.</p>
+                            <p>
+                                J'ai <span id="age"></span> ans et je viens du Sud de la France. Après quelques années en intérim, j’ai choisi de faire une reconversion professionnelle dans le numérique, un domaine qui m’a toujours passionné. J’ai d’abord suivi une formation de développeur web, puis une formation de concepteur développeur d’application. Désormais, je souhaite finaliser cette reconversion par une formation de Data Engineer.
+                                <br>
+                                Aujourd’hui, je suis à la recherche d’une entreprise pour m’accueillir en alternance. Je suis convaincu que l’apprentissage sur le terrain est essentiel pour consolider mes compétences et appréhender pleinement les réalités du métier.
+                                <br>
+                                Motivé, curieux et déterminé, j’ai hâte de contribuer à des projets concrets et d’en apprendre chaque jour.
+                            </p>
                             <div>
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
@@ -95,19 +87,27 @@
         </div>
     </section>
 
-    <section class="exp-class r-p" id="experience">
+    <section class="exp-class r-p py-5" id="experience">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12">
-                    <h2>Mon parcours</h2>
+                <div class="col-12"><h2>Mon parcours</h2></div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card text-card card-custom">
+                        <div class="card-body">
+                            <h4 class="card-title mt-0 text-card">Simplon <img src="images/simplon.png" alt="Logo de l'entreprise" class="card-logo ms-auto"></h4>
+                            <h5>Formation Data Engineer</h5>
+                            <p class="dates">Juillet 2025 à avril 2027 <span class="location">Marseille</span></p>
+                            <p>Cette formation en alternance finalise mon projet professionnel et me permet d’acquérir des compétences dans la Data. Dans le cadre de cette formation je vais rejoindre une entreprise en tant qu'alternant afin d'évoluer dans ce domaine.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                     <div class="card text-card card-custom">
                         <div class="card-body">
                             <h4 class="card-title mt-0 text-card">Studi <img src="images/studi.png" alt="Logo de l'entreprise" class="card-logo ms-auto logo-studi"></h4>
                             <h5>Formation développeur concepteur d'application Bac +3</h5>
-                            <p class="dates">Juin 2024 à mai 2025 <span class="location">Télétravail</span></p>
-                            <p>En formation depuis peu, je suis actuellement un programme afin d'acquérir de nouvelles compétences dans le domaine du développement. J'effectue cette formation à distance, ce qui me permet d'être autonome et de gérer mon temps de manière efficace.</p>
+                            <p class="dates">Juin 2024 à mars 2025 <span class="location">Télétravail</span></p>
+                            <p>Cette formation m'a permis d'acquérir de nouvelles compétences dans le développement d'application mobile et desktop. J'ai effectué cette formation à distance, ce qui m'a poussé à être autonome et à gérer mon temps efficacement.</p>
                         </div>
                     </div>
                 </div>
@@ -155,30 +155,58 @@
         </div>
     </section>
 
-    <section class="skills-class r-p" id="skills">
+    <section class="skills r-p py-5" id="skills">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <h2>Mes compétences</h2>
-                </div>
+                <div class="col-12"><h2>Mes compétences</h2></div>
                 <div class="col-12">
                     <div class="skills-marquee">
                         <div class="marquee-container">
-                            <div class="marquee-content">
-                                <i class="fab fa-html5"></i>
-                                <i class="fab fa-css3-alt"></i>
-                                <img src="images/scss.png" alt="scss" class="skill-icon">
-                                <i class="fab fa-bootstrap"></i>
-                                <i class="fab fa-js"></i>
-                                <img src="images/jquery.png" alt="jQuery" class="skill-icon">
-                                <i class="fab fa-php"></i>
-                                <i class="fas fa-database"></i>
-                                <i class="fab fa-swift"></i>
-                                <i class="fab fa-swift swiftui"></i>
-                                <i class="fab fa-wordpress"></i>
-                                <i class="fab fa-github"></i>
-                                <i class="fab fa-gitlab"></i>
-                                <i class="fab fa-figma"></i>
+                            <div class="marquee-content d-flex justify-content-around flex-wrap">
+                                <div class="skill-item python text-center m-3 fw-bold">
+                                    <img src="images/Python.png" alt="Python" class="skill-icon mb-2">
+                                    <p>Python</p>
+                                </div>
+                                <div class="skill-item text-center m-3 fw-bold">
+                                    <img src="images/Docker.png" alt="Docker" class="skill-icon mb-2">
+                                    <p>Docker</p>
+                                </div>
+                                <div class="skill-item text-center m-3 fw-bold">
+                                    <i class="fab fa-bootstrap skill-icon mb-2"></i>
+                                    <p>Bootstrap</p>
+                                </div>
+                                <div class="skill-item text-center m-3 fw-bold">
+                                    <img src="images/jquery.png" alt="jQuery" class="skill-icon mb-2">
+                                    <p>jQuery</p>
+                                </div>
+                                <div class="skill-item text-center m-3 fw-bold">
+                                    <i class="fab fa-php skill-icon mb-2"></i>
+                                    <p>PHP</p>
+                                </div>
+                                <div class="skill-item text-center m-3 fw-bold">
+                                    <i class="fas fa-database skill-icon mb-2"></i>
+                                    <p>SQL</p>
+                                </div>
+                                <div class="skill-item text-center m-3 fw-bold">
+                                    <i class="fab fa-swift skill-icon mb-2"></i>
+                                    <p>Swift</p>
+                                </div>
+                                <div class="skill-item text-center m-3 fw-bold">
+                                    <i class="fab fa-swift swiftui skill-icon mb-2"></i>
+                                    <p>SwiftUI</p>
+                                </div>
+                                <div class="skill-item text-center m-3 fw-bold">
+                                    <i class="fab fa-github skill-icon mb-2"></i>
+                                    <p>GitHub</p>
+                                </div>
+                                <div class="skill-item text-center m-3 fw-bold">
+                                    <i class="fab fa-gitlab skill-icon mb-2"></i>
+                                    <p>GitLab</p>
+                                </div>
+                                <div class="skill-item text-center m-3 fw-bold">
+                                    <i class="fab fa-figma skill-icon mb-2"></i>
+                                    <p>Figma</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -187,32 +215,65 @@
         </div>
     </section>
 
-    <section class="realisations-class r-p" id="projects">
+    <section class="realisations-class r-p py-5" id="projects">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12">
-                    <h2>Mes projets</h2>
-                </div>
+                <div class="col-12"><h2>Mes projets</h2></div>
                 <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                     <div class="card text-card card-custom project-card">
                         <div class="card-body d-flex flex-column">
-                            <h4 class="card-title mt-0 d-flex align-items-center">GiveGood<img src="images/logo-givegood.png" alt="GiveGood" class="card-logo ms-auto gg-logo"></h4>
-                            <p>GiveGood est une application qui a pour but de mettre en relation des personnes désireuses d'aider avec celles qui sont dans le besoin. L'objectif est de faciliter les gestes de solidarité et de rendre l'entraide accessible à tous.</p>
+                            <h4 class="card-title mt-0 d-flex align-items-center justify-content-between">
+                                Analizor
+                                <div class="card-logo"></div>
+                            </h4>
+                            <p class="mt-2"><strong>Outils :</strong> Python, pandas, Docker, SQLite</p>
+                            <p class="flex-grow-1">Analizor est un outil conçu pour automatiser la collecte, l'importation et l'analyse des ventes d'une PME. Il centralise les données depuis des CSV en ligne, les stocke dans une base SQLite et génère un rapport uit et par région).</p>
                             <div class="mt-auto btn-container">
-                                <a href="#" class="btn btn-info btn-rounded" data-popup="GiveGood">En savoir plus</a>
-                                <a href="https://github.com/Hamza-Kachmir/GiveGood" class="btn btn-primary github-btn btn-rounded" target="_blank">GitHub <i class="fab fa-github github-icon"></i></a>
+                                <a href="https://github.com/Hamza-Kachmir/Analizor" class="btn btn-primary github-btn btn-rounded" target="_blank">
+                                    GitHub <i class="fab fa-github github-icon"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                     <div class="card text-card card-custom project-card">
-                        <div class="card-body d-flex">
-                            <h4 class="card-title mt-0 d-flex align-items-center">Easy Ocre<img src="images/logo-ocre.png" alt="Easy Ocre" class="company-logo ms-auto ocre-logo"></h4>
-                            <p>Easy Ocre est une plateforme dédiée à simplifier le suivi et l'organisation de la quête légendaire dans le jeu Dofus, l'éternelle moisson. Cette quête exige des joueurs de capturer plus de 300 monstres différents.</p>
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title mt-0 d-flex align-items-center">PokéJob<img src="images/pokejob.png" alt="PokeJob" class="card-logo ms-auto gg-logo"></h4>
+                            <p class="mt-2"><strong>Outils :</strong> Python, Docker, Tkinter, HTML, CSS, Bootstrap, PHP, SQL, JS, jQuery</p>
+                            <p class="flex-grow-1">PokéJob est une plateforme de gestion de candidature qui facilite le suivi de ses candidatures. Je l'ai fait afin de faire le suivi de ma recherche d'alternance.</p>
                             <div class="mt-auto btn-container">
-                                <a href="#" class="btn btn-info btn-rounded" data-popup="Easy Ocre">En savoir plus</a>
-                                <a href="https://github.com/Hamza-Kachmir/Easy-Ocre" class="btn btn-primary github-btn btn-rounded" target="_blank">GitHub <i class="fab fa-github github-icon"></i></a>
+                                <a href="https://github.com/Hamza-Kachmir/PokeJob" class="btn btn-primary github-btn btn-rounded" target="_blank">
+                                    GitHub <i class="fab fa-github github-icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card text-card card-custom project-card">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title mt-0 d-flex align-items-center">GiveGood<img src="images/logo-givegood.png" alt="GiveGood" class="card-logo ms-auto gg-logo"></h4>
+                            <p class="mt-2"><strong>Outils :</strong> Swift, SwiftUI</p>
+                            <p class="flex-grow-1">GiveGood est une application qui a pour but de mettre en relation des personnes désireuses d'aider avec celles qui sont dans le besoin. L'objectif est de faciliter les gestes de solidarité et de rendre l'entraide accessible à tous.</p>
+                            <div class="mt-auto btn-container">
+                                <a href="https://github.com/Hamza-Kachmir/GiveGood" class="btn btn-primary github-btn btn-rounded" target="_blank">
+                                    GitHub <i class="fab fa-github github-icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card text-card card-custom project-card">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title mt-0 d-flex align-items-center">Easy Ocre<img src="images/logo-ocre.png" alt="Easy Ocre" class="company-logo ms-auto ocre-logo"></h4>
+                            <p class="mt-2"><strong>Outils :</strong> HTML, CSS, JS, PHP, MySQL</p>
+                            <p class="flex-grow-1">Easy Ocre est une plateforme dédiée à simplifier le suivi et l'organisation de la quête légendaire dans le jeu Dofus, l'éternelle moisson.</p>
+                            <div class="mt-auto btn-container">
+                                <a href="https://github.com/Hamza-Kachmir/Easy-Ocre" class="btn btn-primary github-btn btn-rounded" target="_blank">
+                                    GitHub <i class="fab fa-github github-icon"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -221,10 +282,12 @@
                     <div class="card text-card card-custom project-card">
                         <div class="card-body d-flex flex-column">
                             <h4 class="card-title mt-0 d-flex align-items-center">Work Skill<img src="images/logo-ws.png" alt="Work Skill" class="card-logo ms-auto ws-logo"></h4>
-                            <p>Work Skill est une plateforme destinée aux séniors souhaitant effectuer une reconversion professionnelle. L'objectif est de faire un bilan de compétences afin de se focaliser et de s'améliorer sur les compétences manquantes.</p>
+                            <p class="mt-2"><strong>Outils :</strong> HTML, CSS, JS, PHP, MySQL</p>
+                            <p class="flex-grow-1">Work Skill est une plateforme destinée aux séniors souhaitant effectuer une reconversion professionnelle.</p>
                             <div class="mt-auto btn-container">
-                                <a href="#" class="btn btn-info btn-rounded" data-popup="Work Skill">En savoir plus</a>
-                                <a href="https://github.com/Hamza-Kachmir/Work-Skill" class="btn btn-primary github-btn btn-rounded" target="_blank">GitHub <i class="fab fa-github github-icon"></i></a>
+                                <a href="https://github.com/Hamza-Kachmir/Work-Skill" class="btn btn-primary github-btn btn-rounded" target="_blank">
+                                    GitHub <i class="fab fa-github github-icon"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -233,10 +296,12 @@
                     <div class="card text-card card-custom project-card">
                         <div class="card-body d-flex flex-column">
                             <h4 class="card-title mt-0 d-flex align-items-center">My Monki<img src="images/logo-monki.png" alt="My Monki" class="card-logo ms-auto monki-logo"></h4>
-                            <p>My Monki est un blog sur le thème des singes. Les utilisateurs peuvent créer des sujets et discuter autour de cette thématique.</p>
+                            <p class="mt-2"><strong>Outils :</strong> HTML, CSS, Bootstrap, PHP, MySQL</p>
+                            <p class="flex-grow-1">My Monki est un blog sur le thème des singes.</p>
                             <div class="mt-auto btn-container">
-                                <a href="#" class="btn btn-info btn-rounded" data-popup="My Monki">En savoir plus</a>
-                                <a href="https://github.com/Hamza-Kachmir/My-Monki/tree/main" class="btn btn-primary github-btn btn-rounded" target="_blank">GitHub <i class="fab fa-github github-icon"></i></a>
+                                <a href="https://github.com/Hamza-Kachmir/My-Monki/tree/main" class="btn btn-primary github-btn btn-rounded" target="_blank">
+                                    GitHub <i class="fab fa-github github-icon"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -245,19 +310,20 @@
                     <div class="card text-card card-custom project-card">
                         <div class="card-body d-flex flex-column">
                             <h4 class="card-title mt-0 d-flex align-items-center">Booki<img src="images/booki_logo.svg" alt="Booki" class="card-logo ms-auto booki-logo"></h4>
-                            <p>Booki est une plateforme de réservation en ligne pour les hébergements touristiques. Son but est de simplifier le processus de réservation pour les utilisateurs.</p>
+                            <p class="mt-2"><strong>Outils :</strong> HTML, CSS</p>
+                            <p class="flex-grow-1">Booki est une plateforme de réservation en ligne pour les hébergements touristiques.</p>
                             <div class="mt-auto btn-container">
-                                <a href="#" class="btn btn-info btn-rounded" data-popup="Booki">En savoir plus</a>
-                                <a href="https://github.com/Hamza-Kachmir/Projet-Booki/tree/main/Projet%20Booki" class="btn btn-primary github-btn btn-rounded" target="_blank">GitHub <i class="fab fa-github github-icon"></i></a>
+                                <a href="https://github.com/Hamza-Kachmir/Projet-Booki/tree/main/Projet%20Booki" class="btn btn-primary github-btn btn-rounded" target="_blank">
+                                    GitHub <i class="fab fa-github github-icon"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>    
-
-    <section class="contact r-p" id="contact">
+    </section>
+    <section class="contact r-p py-5" id="contact">
         <div class="container">
             <h2 class="text-center">Me contacter</h2>
             <div class="row justify-content-center align-items-center contacts">
@@ -283,36 +349,10 @@
                         </div>
                     </div>
                 </div>
-    
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card text-card card-custom text-center card-contact">
-                        <div class="card-body" title="Le formulaire n'est pas encore disponible">
-                            <h4 class="card-title">Un petit message pour savoir plus ?</h4>
-                            <form id="form2" method="post" action="form.php" class="contact__form">
-                                <div class="mb-3">
-                                    <label for="nomform" class="form-label">Nom</label>
-                                    <input name="nom" id="nomform" type="text" placeholder="Votre nom" class="form-control" required>
-                                </div>
-    
-                                <div class="mb-3">
-                                    <label for="prenomform" class="form-label">Mail</label>
-                                    <input name="mail" type="email" placeholder="Votre mail" class="form-control" id="prenomform" required>
-                                </div>
-    
-                                <div class="mb-3">
-                                    <label for="textarea1" class="form-label">Message</label>
-                                    <textarea name="commentaire" id="textarea1" cols="30" rows="5" placeholder="Votre message" class="form-control" required></textarea>
-                                </div>
-    
-                                <button type="submit" class="btn btn-primary" disabled>Envoyer</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
-    
+
     <div id="overlay" class="overlay"></div>
     <div id="popup" class="popup">
         <div class="popup-content modal-content">
@@ -325,8 +365,11 @@
         </div>
     </div>
 
-    <footer>
-        <p>HK Code © 2024 - <span>Portfolio Hamza Kachmir</span></p>
+    <footer class="text-center py-4">
+        <div class="container d-flex justify-content-center align-items-center">
+            <img src="images/logo.png" alt="Logo" class="footer-logo">
+            <span>© <span id="year"></span> – Portfolio Hamza Kachmir</span>
+        </div>
     </footer>
 
     <script src="lib/jquery-3.7.1.min.js"></script>
@@ -335,7 +378,6 @@
     <script src="lib/typed.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.marquee@1.6.0/jquery.marquee.min.js"></script>
     <script src="js/app.js"></script>
-
 </body>
 
 </html>

@@ -287,7 +287,7 @@ header {
 }
 
 .skills-marquee i, .skills-marquee img {
-    margin: 0 1.875rem;
+    margin: 0 1rem; /* Reduced margin for consistent spacing */
     font-size: 3rem;
     color: #333;
     vertical-align: middle;
@@ -297,15 +297,6 @@ header {
 
 .skills-marquee i:hover, .skills-marquee img:hover {
     transform: scale(1.1);
-}
-
-.fab.fa-html5 {
-    color: #e34c26;
-    margin-left: -0.625rem;
-}
-
-.fab.fa-css3-alt {
-    color: #1572b6;
 }
 
 .fab.fa-bootstrap {
@@ -324,16 +315,8 @@ header {
     color: #0946AC;
 }
 
-.fab.fa-js {
-    color: #D4B92E;
-}
-
 .fas.fa-database {
     color: #00618a;
-}
-
-.fab.fa-wordpress {
-    color: #21759b;
 }
 
 .fab.fa-github {
@@ -348,10 +331,23 @@ header {
     color: #0acf83;
 }
 
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+    min-height: 100px;
+    text-align: center;
+}
+
 .skill-icon {
     width: 3.125rem;
-    margin-top: -1.25rem;
+    height: 3.125rem;
+    margin-bottom: 0.5rem;
+    object-fit: contain;
 }
+
 
 /* Projects */
 .realisations-class {
@@ -559,6 +555,11 @@ footer p {
     margin-bottom: 1.25rem;
 }
 
+.footer-logo {
+    height: 4rem;
+    margin-right: 0.5rem;
+}
+
 /* JavaScript */
 .popup {
     display: none;
@@ -649,6 +650,8 @@ body.popup-open {
 }
 
 section {
+    padding-top: 6.25rem;
+    padding-bottom: 6.25rem;
     opacity: 0;
     transform: translateY(3.125rem);
     transition: all 0.5s ease-in-out;
@@ -659,6 +662,9 @@ section.visible {
     transform: translateY(3.125rem);
 }
 
+.js-marquee {
+    margin-right: 0 !important;
+}
 /* Media queries */
 @media (max-width: 1199px) {
     .contacts {
