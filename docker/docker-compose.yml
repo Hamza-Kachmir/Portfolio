@@ -1,0 +1,17 @@
+services:
+  script-runner:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ../:/app
+    env_file:
+      - ../.env
+    depends_on:
+      - sqlite-db
+    command: python -m app.main
+
+  sqlite-db:
+    image: nouchka/sqlite3
+    volumes:
+      - ../database:/root/db
