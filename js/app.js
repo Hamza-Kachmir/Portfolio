@@ -44,15 +44,7 @@ $(document).ready(function () {
 
     // Initialisation des animations de texte avec Typed.js
     function initialiserTyped() {
-        new Typed(".element", {
-            strings: ["Hamza Kachmir", "à la recherche d'une alternance"],
-            smartBackspace: true,
-            typeSpeed: 90,
-            backSpeed: 70,
-            loop: true,
-            loopCount: Infinity,
-            startDelay: 1000
-        });
+
     }
 
     // Initialisation de l'effet de texte défilant avec Marquee.js
